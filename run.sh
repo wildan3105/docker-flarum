@@ -2,8 +2,8 @@
 echo 'Starting...'
 # create volume for db
 docker volume create db-data
-docker volume web-contents
-docker volume web-assets
+docker volume create web-contents
+docker volume create web-assets
 
 # create db container
 docker run -d --name flarum_db -e MYSQL_ROOT_PASSWORD=wildan123 -e MYSQL_USER=wildan -e MYSQL_PASSWORD=wildan123 MYSQL_DATABASE=flarum -v db-data:/var/lib/mysql mariadb:10.1
