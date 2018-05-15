@@ -1,7 +1,7 @@
 version: "2.3"
 services:
   forum:
-    image: xpjp/flarum-fpm            # eq : repo name
+    image: xpjp/flarum-fpm            
     volumes:                          
       - web-contents:/var/www/html
       - web-assets:/var/www/html/assets
