@@ -1,5 +1,5 @@
 #!/bin/sh
-echo 'Starting...'
+echo 'Starting...';
 # create volume for db
 docker volume create db-data
 docker volume create web-contents
@@ -17,4 +17,4 @@ docker run -d --name flarum_nginx -p 80:80 -v web-contents:/var/www/html:ro -v w
 # check if all containers are running
 docker ps 
 
-echo 'Finish with zero exit code'
+echo 'Finish with zero exit code';
