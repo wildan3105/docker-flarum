@@ -1,0 +1,41 @@
+version: "2.3"
+services:
+  forum:
+    image: xpjp/flarum-fpm            # eq : repo name
+    volumes:                          
+      - web-contents:/var/www/html
+      - web-assets:/var/www/html/assets
+    depends_on:
+      - database
+  web:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/flarum.conf:/etc/nginx/conf.d/default.conf:ro
+      - web-contents:/var/www/html:ro
+      - web-assets:/var/www/html/assets:ro
+    depends_on:
+      - forum
+  database:
+    image: mariadb:10.1
+    volumes:
+      - db-data:/var/lib/mysql
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    environment:    #  Should be overwritten in docker-compose-override.yml
+      MYSQL_ROOT_PASSWORD: wildan123
+      MYSQL_USER: wildan
+      MYSQL_PASSWORD: wildan123
+      MYSQL_DATABASE: flarum
+volumes:
+  db-data:          #  Should be overwritten in docker-compose-override.yml
+    # driver_opts:
+    #   type: none
+    #   device: </path/to/db-data>
+    #   o: bind
+  web-contents:
+  web-assets:       #  Should be overwritten in docker-compose-override.yml
+    # driver_opts:
+    #   type: none
+    #   device: </path/to/assets>
+    #   o: bind
