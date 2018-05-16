@@ -24,7 +24,10 @@ RUN \
   \
   chown www-data:www-data /var/www/html
 
+COPY test.sh /var/www/
+
 USER www-data
+
 WORKDIR /var/www/html
 
 RUN \
@@ -38,8 +41,3 @@ RUN \
 
 VOLUME ["/var/www/html", "/var/www/html/assets"]
 
-COPY root /
-
-RUN chmod +x /usr/local/bin/*
-
-CMD ["repeat.sh"]
