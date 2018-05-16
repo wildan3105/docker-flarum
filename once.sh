@@ -1,4 +1,4 @@
-#!/bin/sh
+!#/bin/sh
 echo 'Starting...';
 # create volume for db
 docker volume create db
