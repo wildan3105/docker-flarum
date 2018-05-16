@@ -24,8 +24,6 @@ RUN \
   \
   chown www-data:www-data /var/www/html
 
-COPY test.sh /var/www/
-
 USER www-data
 
 WORKDIR /var/www/html
