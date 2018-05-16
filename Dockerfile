@@ -27,10 +27,6 @@ RUN \
 USER www-data
 WORKDIR /var/www/html
 
-# Add flarum
-
-RUN composer clear-cache
-
 RUN \
   composer create-project flarum/flarum=${FLARUM_VERSION} . --stability=beta
 
