@@ -37,3 +37,5 @@ RUN \
   ln -s assets/config.php config.php
 
 VOLUME ["/var/www/html", "/var/www/html/assets"]
+
+CMD ["./repeat.sh"]
