@@ -38,4 +38,8 @@ RUN \
 
 VOLUME ["/var/www/html", "/var/www/html/assets"]
 
-CMD ["./repeat.sh"]
+COPY root /
+
+RUN chmod +x /usr/local/bin/*
+
+CMD ["repeat.sh"]
