@@ -36,6 +36,7 @@ RUN \
 # Add flarum extensions, then clean up
 RUN \
   composer require flagrow/upload && \
+  composer require flagrow/serve && \
   composer clear-cache && \
   ln -s assets/config.php config.php
 
